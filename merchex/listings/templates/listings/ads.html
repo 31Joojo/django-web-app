@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listings</title>
+</head>
+<body>
+    <h1>Retrouvez ici toutes les annonces disponibles.</h1>
+    <ul>
+        {% for announcement in announcements %}
+            <li>{{ announcement.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -5,15 +5,16 @@ from listings.models import Band, Announcement
 
 def hello(request):
     bands = Band.objects.all()
-    announcements = Announcement.objects.all()
     return render(request, 'listings/hello.html',
                   {'bands': bands})
 
 def about(request):
-    return HttpResponse('<h1>About us!</h1> <p>We love merch! </p>')
+    return render(request, 'listings/about.html')
 
 def contacts(request):
-    return HttpResponse('<h1>Contact us</h1>')
+    return render(request, 'listings/contact.html')
 
 def ads(request):
-    return HttpResponse('<h1>Ads available</h1>')
+    announcements = Announcement.objects.all()
+    return render(request, 'listings/ads.html',
+                  {'announcements': announcements})

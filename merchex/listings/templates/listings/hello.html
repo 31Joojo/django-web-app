@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../public/style.css">
     <title>Merchex Page</title>
 </head>
 <body>
@@ -9,10 +10,13 @@
     <p>Mes groupes préférés sont :</p>
     <!-- TO-DO : liste des groupes -->
     <ul>
-        <li>{{ bands.0.name }}</li>
-        <li>{{ bands.1.name }}</li>
-        <li>{{ bands.2.name }}</li>
+        {% for band in bands %}
+         <li>{{ band.name|lower }}</li>
+        {% endfor %}
     </ul>
+    <p>
+        J'ai {{ bands|length }} groupes préférés !
+    </p>
 
 </body>
 </html>
