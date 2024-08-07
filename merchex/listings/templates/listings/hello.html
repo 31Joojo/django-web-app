@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../public/style.css">
-    <title>Merchex Page</title>
-</head>
-<body>
-    <h1>Merchex</h1>
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+    <h2>Merchex</h2>
     <p>Mes groupes préférés sont :</p>
     <!-- TO-DO : liste des groupes -->
     <ul>
@@ -18,5 +14,4 @@
         J'ai {{ bands|length }} groupes préférés !
     </p>
 
-</body>
-</html>
+{% endblock %}
