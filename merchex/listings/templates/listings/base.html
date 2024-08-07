@@ -10,9 +10,26 @@
 </head>
 <body>
 
-    <h1>Hello Django !</h1>
+    <header>
+        <div>
+            <h1>Hello Django !</h1>
+        </div>
+
+        <div>
+            <nav class="nav-bar">
+                <a href="#ads">Annonces</a>
+                <a href="#hello">Principale</a>
+                <a href="#about-us">A propos</a>
+                <a href="#contact-us">Contactez-nous</a>
+            </nav>
+        </div>
+    </header>
 
     {% block content %}{% endblock %}
+
+    <footer>
+        © Joris LARMAILLARD-NOIREN
+    </footer>
 
 </body>
 </html>
