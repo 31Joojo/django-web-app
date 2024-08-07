@@ -6,3 +6,38 @@ body {
     font-family: Futura;
     margin: 0;
 }
+
+header {
+    background-color: cornflowerblue;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+/* Style de la barre de navigation */
+#nav-bar {
+    justify-content: space-evenly;
+}
+
+/* Style des bandes */
+.section-bands {
+    column-count: 2;
+    column-gap: 20px;
+    column-width: 100px;
+    height: 500px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 15px;
+}
+.band {
+    border: 1px dashed seagreen;
+    border-radius: .25cm;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+footer {
+    background-color: cornflowerblue;
+}
