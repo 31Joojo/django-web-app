@@ -5,11 +5,11 @@
     <h2>Merchex</h2>
     <p>Mes groupes préférés sont :</p>
     <!-- TO-DO : liste des groupes -->
-    <ul>
+    <section class = "section-bands">
         {% for band in bands %}
-         <li>{{ band.name|lower }}</li>
+         <div class="band">{{ band.name }}</div>
         {% endfor %}
-    </ul>
+    </section>
     <p>
         J'ai {{ bands|length }} groupes préférés !
     </p>
