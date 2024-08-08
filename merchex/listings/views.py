@@ -3,6 +3,9 @@ from django.shortcuts import render
 from listings.models import Band, Listing
 
 
+def home(request):
+    return render(request, 'listings/base.html')
+
 def hello(request):
     bands = Band.objects.all()
     return render(request, 'listings/hello.html',
