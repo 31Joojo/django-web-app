@@ -18,7 +18,11 @@ class Band(models.Model):
     )
     active = models.BooleanField(default=True)
     official_homepage = models.fields.URLField(null=True, blank=True)
-class Announcement(models.Model):
+
+    def __str__(self):
+        return f'{self.name}'
+
+class Listing(models.Model):
     ## Sous-classe pour répertorier les différents types
     class Type(models.TextChoices):
         RECORDS = 'RE'
@@ -33,3 +37,7 @@ class Announcement(models.Model):
         validators=[MinValueValidator(1900), MaxValueValidator(2024)]
     )
     type = models.fields.CharField(choices=Type.choices, max_length=5)
+
+    def __str__(self):
+        return f'{self.title}'
+

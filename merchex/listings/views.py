@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from listings.models import Band, Announcement
+from listings.models import Band, Listing
 
 
 def hello(request):
@@ -15,6 +15,6 @@ def contacts(request):
     return render(request, 'listings/contact.html')
 
 def ads(request):
-    announcements = Announcement.objects.all()
+    listings = Listing.objects.all()
     return render(request, 'listings/ads.html',
-                  {'announcements': announcements})
+                  {'listings': listings})
