@@ -1,0 +1,17 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+    <h3>L'identifiant de l'annonce est {{ ad_id }}</h3>
+    <section>
+        <h4>{{ ad.title }}</h4>
+
+        <ul>
+            <li>Description : {{ ad.description }}</li>
+            <li>Ventes : {{ ad.sold }}</li>
+            <li>Type : {{ ad.get_type_display }}</li>
+            <li>Band : {{ ad.band }}</li>
+        </ul>
+    </section>
+
+    <a href="{% url 'ads-list' %}">Retour sur la page des annonces</a>
+{% endblock %}

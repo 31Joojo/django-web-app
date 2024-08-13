@@ -1,0 +1,31 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+    <h3>L'identifiant est {{ band_id }}</h3>
+    <section class = "section-bands">
+        <h4>{{ band.name }}</h4>
+
+        <ul>
+            <li>Genre : {{ band.get_genre_display }}</li>
+            <li>Année de formation : {{ band.year_formed }}</li>
+            <li>Actif : {{ band.active|yesno }}</li>
+            {% if band.official_homepage %}
+                <li><a href="{{ band.official_homepage }}">{{ band.official_homepage }}</a></li>
+            {% endif %}
+        </ul>
+
+        <p>{{ band.biography }}</p>
+    </section>
+
+    <section>
+        <h3>Annonces du groupe :</h3>
+        {% for listing in band.listing_set.all %}
+            {% if listing.band == band %}
+                <li><a href="{% url 'ad-detail' listing.id %}">{{ listing.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </section>
+
+    <a href="{% url 'band-list' %}">Retour sur la page des groupes</a>
+{% endblock %}

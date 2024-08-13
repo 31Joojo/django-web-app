@@ -5,7 +5,7 @@
     <h2>Retrouvez ici toutes les annonces disponibles.</h2>
     <ul>
         {% for listing in listings %}
-            <li>{{ listing.title }}</li>
+            <li><a href="{% url 'ad-detail' listing.id %}">{{ listing.title }}</a></li>
         {% endfor %}
     </ul>
 
