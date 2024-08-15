@@ -1,0 +1,18 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+    <div class="message-confirmation">
+        <h2>Merci d'avoir pris contact !</h2>
+
+        <p>Voici votre message : {{ message }}</p>
+    </div>
+
+    <div class="conteneur-bouton">
+        <a href="{% url 'contact-us' %}">
+            <button>Retour vers la page de contact</button>
+        </a>
+
+    </div>
+
+{% endblock %}
