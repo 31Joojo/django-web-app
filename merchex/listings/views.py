@@ -47,6 +47,17 @@ def band_update(request, band_id):
                   'listings/band_update.html',
                   {'form_update': form_update, 'band_id': band_id})
 
+def band_delete(request, band_id):
+    band = Band.objects.get(id=band_id)
+
+    if request.method == 'POST':
+        ## Supprimer l'élément de la BDD
+        band.delete()
+        return redirect('band-list')
+    return render(request,
+                  'listings/band_delete.html',
+                  {'band_id': band_id, 'band': band})
+
 def about(request):
     return render(request, 'listings/about.html')
 
