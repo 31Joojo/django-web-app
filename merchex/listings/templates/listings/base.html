@@ -12,7 +12,7 @@
 
     <header>
         <div>
-            <a href="{% url 'home' %}"><h1>Hello Django !</h1></a>
+            <a href="{% url 'home' %}"><h1>Bienvenu sur l'application django !</h1></a>
         </div>
 
         <div>
@@ -20,13 +20,16 @@
                 <a href="{% url 'ads-list' %}">Annonces</a>
                 <a href="{% url 'band-list' %}">Groupes</a>
                 <a href="{% url 'about-us' %}">A propos</a>
-                <a href="{% url 'contact-us' %}">Contactez-nous</a>
+                <a href="{% url 'contact-us' %}">Contact</a>
             </nav>
         </div>
     </header>
 
-    <h2 style="text-align: center;">Bienvenu sur l'application django !</h2>
-    {% block content %}{% endblock %}
+    <main class="main-content">
+
+        {% block content %}{% endblock %}
+
+    </main>
 
     <footer>
         © Joris LARMAILLARD-NOIREN
