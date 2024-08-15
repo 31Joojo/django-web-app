@@ -28,8 +28,17 @@
     </section>
 
     <div class="conteneur-bouton">
-        <a href="{% url 'band-list' %}">
-            <button class="bouton-retour">Retour sur la page des groupes</button>
-        </a>
+        <div class="contenu-bouton">
+            <div>
+                <a href="{% url 'band-list' %}">
+                    <button class="bouton-retour">Retour</button>
+                </a>
+            </div>
+            <div>
+                <a href="{% url 'band-update' band.id%}">
+                    <button class="bouton">Modifier</button>
+                </a>
+            </div>
+        </div>
     </div>
 {% endblock %}
