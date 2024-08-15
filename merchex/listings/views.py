@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from listings.models import Band, Listing
 from listings.forms import ContactForm, BandForm, ListingForm
 from django.core.mail import send_mail
@@ -51,8 +52,10 @@ def band_delete(request, band_id):
     band = Band.objects.get(id=band_id)
 
     if request.method == 'POST':
-        ## Supprimer l'élément de la BDD
+        ## Supprimer un groupe de la BDD
         band.delete()
+        ## Afficher un message de succès pour la suppression
+        messages.success(request, f'Le groupe {band.name} a été supprimé avec succès.')
         return redirect('band-list')
     return render(request,
                   'listings/band_delete.html',
