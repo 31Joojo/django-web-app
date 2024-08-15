@@ -1,0 +1,28 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+    <h2>Suppression du groupe : {{ band.name }}</h2>
+
+    <p>Êtes-vous sûr de vouloir supprimer le groupe {{ band.name }} ?</p>
+
+    <p>Pour rappel, les informations du gruope sont les suivantes :</p>
+
+    <ul>
+        <li>Genre : {{ band.genre }}</li>
+        <li>Année de formation : {{ band.year_formed }}</li>
+        <li>Actif : {{ band.active}}</li>
+    </ul>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Supprimer">
+    </form>
+
+    <div class="conteneur-bouton">
+        <a href="{% url 'band-detail' band_id %}">
+            <button class="bouton-retour">Annuler</button>
+        </a>
+    </div>
+
+{% endblock %}
