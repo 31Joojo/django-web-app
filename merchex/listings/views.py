@@ -97,14 +97,14 @@ def ad_create(request):
                   {'ad_form': ad_form})
 
 def ad_update(request, ad_id):
-    ad_update = Listing.objects.get(id=ad_id)
+    ad = Listing.objects.get(id=ad_id)
     if request.method == 'POST':
-        form_update = ListingForm(request.POST, instance=ad_update)
+        form_update = ListingForm(request.POST, instance=ad)
         if form_update.is_valid():
             form_update.save()
             return redirect('ad-detail', ad_id)
     else:
-        form_update = ListingForm(instance=ad_update)
+        form_update = ListingForm(instance=ad)
     return render(request,
                   'listings/ad_update.html',
                   {'form_update': form_update, 'ad_id': ad_id})
