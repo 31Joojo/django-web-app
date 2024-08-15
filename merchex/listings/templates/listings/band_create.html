@@ -1,0 +1,19 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+    <h2>Ajouter un groupe</h2>
+
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ band_form.as_p }}
+        <input type="submit" value="Envoyer">
+    </form>
+
+    <div class="conteneur-bouton">
+        <a href="{% url 'band-list' %}">
+            <button>Retour vers la page des groupes</button>
+        </a>
+    </div>
+
+{% endblock %}
