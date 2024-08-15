@@ -27,5 +27,9 @@
         {% endfor %}
     </section>
 
-    <a href="{% url 'band-list' %}">Retour sur la page des groupes</a>
+    <div class="conteneur-bouton">
+        <a href="{% url 'band-list' %}">
+            <button class="bouton-retour">Retour sur la page des groupes</button>
+        </a>
+    </div>
 {% endblock %}

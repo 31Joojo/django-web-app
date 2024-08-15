@@ -7,11 +7,15 @@
 
         <ul>
             <li>Description : {{ ad.description }}</li>
-            <li>Ventes : {{ ad.sold }}</li>
+            <li>Ventes : {{ ad.sold|yesno }}</li>
             <li>Type : {{ ad.get_type_display }}</li>
             <li>Band : {{ ad.band }}</li>
         </ul>
     </section>
 
-    <a href="{% url 'ads-list' %}">Retour sur la page des annonces</a>
+    <div class="conteneur-bouton">
+        <a href="{% url 'ads-list' %}">
+            <button class="bouton-retour">Retour sur la page des annonces</button>
+        </a>
+    </div>
 {% endblock %}
