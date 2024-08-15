@@ -14,8 +14,17 @@
     </section>
 
     <div class="conteneur-bouton">
-        <a href="{% url 'ads-list' %}">
-            <button class="bouton-retour">Retour sur la page des annonces</button>
-        </a>
+        <div class="contenu-bouton">
+            <div>
+                <a href="{% url 'ads-list' %}">
+                    <button class="bouton-retour">Retour sur la page des annonces</button>
+                </a>
+            </div>
+            <div>
+                <a href="{% url 'ad-update' ad_id %}">
+                    <button class="bouton">Modifier</button>
+                </a>
+            </div>
+        </div>
     </div>
 {% endblock %}
