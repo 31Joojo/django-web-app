@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from listings.models import Band, Listing
-from listings.forms import ContactForm, BandForm
+from listings.forms import ContactForm, BandForm, ListingForm
 from django.core.mail import send_mail
 
 
@@ -20,10 +20,32 @@ def band_detail(request, band_id):
                   {'band_id': band_id, 'band': band})
 
 def band_create(request):
-    band_form = BandForm()
+    if request.method == 'POST':
+        band_form = BandForm(request.POST)
+
+        if band_form.is_valid():
+            band = band_form.save()
+            return redirect('band-detail', band.id)
+    else:
+        band_form = BandForm()
     return render(request,
                   'listings/band_create.html',
                   {'band_form': band_form})
+
+def band_update(request, band_id):
+    band = Band.objects.get(id=band_id)
+
+    if request.method == 'POST':
+        form_update = BandForm(request.POST, instance=band)
+        if form_update.is_valid():
+            ## Sauvegarde des nouvelles informations dans la BDD
+            form_update.save()
+            return redirect('band-detail', band_id)
+    else:
+        form_update = BandForm(instance=band)
+    return render(request,
+                  'listings/band_update.html',
+                  {'form_update': form_update, 'band_id': band_id})
 
 def about(request):
     return render(request, 'listings/about.html')
@@ -61,6 +83,31 @@ def ad_detail(request, ad_id):
     return render(request,
                   'listings/ad_detail.html',
                   {'ad_id': ad_id, 'ad': ad})
+
+def ad_create(request):
+    if request.method == 'POST':
+        ad_form = ListingForm(request.POST)
+        if ad_form.is_valid():
+            ad = ad_form.save()
+            return redirect('ad-detail', ad.id)
+    else:
+        ad_form = ListingForm()
+    return render(request,
+                  'listings/ad_create.html',
+                  {'ad_form': ad_form})
+
+def ad_update(request, ad_id):
+    ad_update = Listing.objects.get(id=ad_id)
+    if request.method == 'POST':
+        form_update = ListingForm(request.POST, instance=ad_update)
+        if form_update.is_valid():
+            form_update.save()
+            return redirect('ad-detail', ad_id)
+    else:
+        form_update = ListingForm(instance=ad_update)
+    return render(request,
+                  'listings/ad_update.html',
+                  {'form_update': form_update, 'ad_id': ad_id})
 
 def confirmation(request):
     return render(request,
