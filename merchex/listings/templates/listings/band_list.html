@@ -2,6 +2,31 @@
 
 {% block content %}
 
+    <!-- Bloc du site pour afficher le message de suppression d'un groupe -->
+    {% if messages %}
+        <div id="conteneur-message">
+            {% for message in messages %}
+                <div class="{% if message.tags %}alert alert-{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Script pour laisser le message afficher pendant 5 secondes -->
+        <script>
+            setTimeout(function() {
+                var conteneurMessage = document.getElementById("conteneur-message")
+                if (conteneurMessage) {
+                    conteneurMessage.style.opacity = '0';
+                    setTimeout(function() {
+                        conteneurMessage.style.display = 'none';
+                    }, 500) /* Temps pour que l'opacité atteinge 0 */
+                }
+            }, 5000)
+        </script>
+
+    {% endif %}
+
     <h2>Groupes</h2>
 
     <!-- TO-DO : liste des groupes -->
