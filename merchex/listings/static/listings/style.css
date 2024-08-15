@@ -1,16 +1,22 @@
 :root {
+    /* Couleur background header et footer */
     --main-bg-color: #a3b18a;
 }
 
-body {
+hmtl, body {
     font-family: Futura;
-    background-color: red;
-    padding: 20px;
+    background-color: #dad7cd;
+    height: 100%;
     margin: 0;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 header {
-    background-color: red;
+    background-color: var(--main-bg-color);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -21,6 +27,10 @@ header {
 /* Style de la barre de navigation */
 #nav-bar {
     justify-content: space-evenly;
+}
+
+.main-content {
+    padding: 20px;
 }
 
 /* Style des bandes */
@@ -41,6 +51,7 @@ header {
 /* Style élément génréaux */
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 a:hover{
@@ -48,7 +59,23 @@ a:hover{
     cursor: pointer;
 }
 
+.conteneur-bouton {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.bouton-retour {
+    background-color: #D2CCA1;
+    border-radius: .25cm;
+    padding: 10px;
+}
+
+.message-confirmation {
+    text-align: center;
+}
+
 footer {
     background-color: var(--main-bg-color);
     text-align: center;
+    padding: 10px;
 }
