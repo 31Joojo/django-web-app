@@ -9,4 +9,10 @@
         {{ ad_form.as_p }}
         <input type="submit" value="Envoyer">
     </form>
+
+    <div class="conteneur-bouton">
+        <a href="{% url 'ads-list' %}">
+            <button class="bouton-retour">Retour</button>
+        </a>
+    </div>
 {% endblock %}
