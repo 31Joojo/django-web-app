@@ -2,9 +2,10 @@
 
 {% block content %}
 
-    <h3>L'identifiant est {{ band_id }}</h3>
     <section class = "section-bands">
-        <h4>{{ band.name }}</h4>
+        <section class="titre">
+            <h3>{{ band.name }}</h3>
+        </section>
 
         <ul>
             <li>Genre : {{ band.get_genre_display }}</li>
