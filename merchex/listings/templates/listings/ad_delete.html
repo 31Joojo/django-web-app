@@ -1,0 +1,29 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+    <h2>Suppresion de l'annonce : {{ ad.title }}</h2>
+
+    <p>Êtes-vous sûr de vouloir supprimer l'annonce suivante : {{ ad.title }} ?</p>
+
+    <p>Pour rappel, les informations de l'annonce sont les suivantes :</p>
+
+    <ul>
+        <li>Type : {{ ad.type }}</li>
+        <li>Description : {{ ad.description }}</li>
+        <li>Année : {{ ad.year }}</li>
+        <li>Groupe : {{ ad.band }}</li>
+    </ul>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Supprimer">
+    </form>
+
+    <div class="conteneur-bouton">
+        <a href="{% url 'ad-detail' ad_id %}">
+            <button class="bouton-retour">Annuler</button>
+        </a>
+    </div>
+
+{% endblock %}
