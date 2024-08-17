@@ -35,8 +35,7 @@ header {
 
 /* Style des bandes */
 .section-bands {
-    /* height: auto; */
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 15px;
     margin: 15px;
 }
@@ -64,18 +63,41 @@ a:hover{
     margin: 10px auto;
 }
 
-.bouton-retour {
-    background-color: #D2CCA1;
+.bouton-retour, .bouton, .bouton-supprimer {
+    font-weight: bold;
     border-radius: .25cm;
     padding: 10px;
+}
+
+.bouton-retour, .bouton {
+    background-color: #D2CCA1;
+}
+
+.bouton-supprimer {
+    background-color: #DA3E52;
+    color: white;
+}
+
+.contenu-bouton {
+    display: flex;
+    justify-content: space-around;
 }
 
 .message-confirmation {
     text-align: center;
 }
 
+.conteneur-message {
+    color: red;
+    transition: opacity .5s ease;
+}
+
 footer {
     background-color: var(--main-bg-color);
     text-align: center;
     padding: 10px;
+}
+
+.titre {
+    text-align: center;
 }
