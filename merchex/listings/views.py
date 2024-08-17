@@ -123,6 +123,15 @@ def ad_update(request, ad_id):
                   'listings/ad_update.html',
                   {'form_update': form_update, 'ad_id': ad_id})
 
+def ad_delete(request, ad_id):
+    ad = Listing.objects.get(id=ad_id)
+    if request.method == 'POST':
+        ad.delete()
+        return redirect('ads-list')
+    return render(request,
+                  'listings/ad_delete.html',
+                  {'ad_id': ad_id, 'ad': ad})
+
 def confirmation(request):
     return render(request,
                   'listings/confirmation.html')

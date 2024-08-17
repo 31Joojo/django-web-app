@@ -31,6 +31,7 @@ urlpatterns = [
     path("ads/<int:ad_id>/", views.ad_detail, name="ad-detail"),
     path("ads/add", views.ad_create, name="ad-create"),
     path("ads/<int:ad_id>/update/", views.ad_update, name="ad-update"),
+    path("ads/<int:ad_id>/delete/", views.ad_delete, name="ad-delete"),
     path("confirmation/", views.confirmation, name="email-sent"),
     path("", views.band_list, name="home")
 ]
