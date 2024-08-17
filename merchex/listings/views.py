@@ -22,7 +22,7 @@ def band_detail(request, band_id):
 
 def band_create(request):
     if request.method == 'POST':
-        band_form = BandForm(request.POST)
+        band_form = BandForm(request.POST, request.FILES)
 
         if band_form.is_valid():
             band = band_form.save()
@@ -100,7 +100,7 @@ def ad_detail(request, ad_id):
 
 def ad_create(request):
     if request.method == 'POST':
-        ad_form = ListingForm(request.POST)
+        ad_form = ListingForm(request.POST, request.FILES)
         if ad_form.is_valid():
             ad = ad_form.save()
             return redirect('ad-detail', ad.id)
@@ -113,7 +113,7 @@ def ad_create(request):
 def ad_update(request, ad_id):
     ad = Listing.objects.get(id=ad_id)
     if request.method == 'POST':
-        form_update = ListingForm(request.POST, instance=ad)
+        form_update = ListingForm(request.POST, request.FILES, instance=ad)
         if form_update.is_valid():
             form_update.save()
             return redirect('ad-detail', ad_id)
