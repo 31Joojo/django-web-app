@@ -4,11 +4,15 @@
 
     <div class="titre"><h2>Ajouter un groupe</h2></div>
 
-    <form action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ band_form.as_p }}
-        <input type="submit" value="Envoyer">
-    </form>
+    <div class="form-section">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="contenu-formulaire">
+                {{ band_form.as_div }}
+            </div>
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
 
     <div class="conteneur-bouton">
         <a href="{% url 'band-list' %}">
