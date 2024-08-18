@@ -2,12 +2,15 @@
 
 {% block content %}
 
-    <h2>Retrouvez ici toutes les annonces disponibles.</h2>
-    <ul>
-        {% for listing in listings %}
-            <li><a href="{% url 'ad-detail' listing.id %}">{{ listing.title }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="titre"><h2>Retrouvez ici toutes les annonces disponibles</h2></div>
+
+    <section class="conteneur-ads">
+        <section class="section-ads">
+            {% for listing in listings %}
+                <div class="contenu"><a href="{% url 'ad-detail' listing.id %}">{{ listing.title }}</a></div>
+            {% endfor %}
+        </section>
+    </section>
 
     <div class="conteneur-bouton">
         <a href="{% url 'ad-create' %}">

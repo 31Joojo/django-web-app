@@ -33,7 +33,7 @@
     <section class="conteneur-bands">
         <section class="section-bands">
             {% for band in bands %}
-             <div class="band"><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a></div>
+             <div class="contenu"><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a></div>
             {% endfor %}
         </section>
     </section>
