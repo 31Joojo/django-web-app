@@ -27,14 +27,16 @@
 
     {% endif %}
 
-    <h2>Groupes</h2>
+    <div class="titre"><h2>Groupes</h2></div>
 
     <!-- TO-DO : liste des groupes -->
-    <ul>
-        {% for band in bands %}
-         <li><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a></li>
-        {% endfor %}
-    </ul>
+    <section class="conteneur-bands">
+        <section class="section-bands">
+            {% for band in bands %}
+             <div class="band"><a href="{% url 'band-detail' band.id %}">{{ band.name }}</a></div>
+            {% endfor %}
+        </section>
+    </section>
 
     <div class="conteneur-bouton">
         <a href="{% url 'band-create' %}">
