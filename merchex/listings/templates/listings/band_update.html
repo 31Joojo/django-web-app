@@ -4,11 +4,17 @@
 
     <h2>Mettre à jour les informations du groupe</h2>
 
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form_update.as_p }}
-        <input type="submit" value="Modifier">
-    </form>
+    <div class="form-section">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="contenu-formulaire">
+                {{ form_update.as_div }}
+            </div>
+            <div class="conteneur-input">
+                <input type="submit" value="Modifier">
+            </div>
+        </form>
+    </div>
 
     <div class="conteneur-bouton">
         <a href="{% url 'band-detail' band_id %}">
