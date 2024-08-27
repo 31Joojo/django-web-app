@@ -4,10 +4,14 @@
 
     <div class="titre"><h2>Contactez-nous !</h2></div>
 
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Envoyer">
-    </form>
+    <div class="form-section">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="contenu-formulaire">
+                {{ form.as_div }}
+            </div>
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
 
 {% endblock %}
