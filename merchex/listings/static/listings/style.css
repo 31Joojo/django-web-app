@@ -1,7 +1,20 @@
+/************************************************/
+/*                   VARIABLES                  */
+/************************************************/
+
 :root {
     /* Couleur background header et footer */
     --main-bg-color: #a3b18a;
+    /* Couleur des boutons d'action */
+    --common-bg-color: #D2CCA1;
+    --common-txt-color: white;
 }
+
+/************************************************/
+
+/************************************************/
+/*                 CORPS DU SITE                */
+/************************************************/
 
 hmtl, body {
     font-family: Futura;
@@ -24,45 +37,105 @@ header {
     margin-bottom: 30px;
 }
 
-/* Style de la barre de navigation */
+footer {
+    background-color: var(--main-bg-color);
+    text-align: center;
+    padding: 10px;
+}
+
+/*********** Style barre de navigation **********/
 #nav-bar {
     justify-content: space-evenly;
 }
 
+/************************************************/
+
+/************************************************/
+/*               CONTENU PRINCIPAL              */
+/************************************************/
+
+/********** Contenu section principale **********/
 .main-content {
     padding: 20px;
 }
 
-/* Style des bandes */
-.section-bands {
+/*************** Style titre page ***************/
+.titre {
+    text-align: center;
+    font-size: 16pt;
+}
+
+.titre-band {
+    text-align: center;
+}
+
+/************* Style page groupe/ads ************/
+.conteneur-bands, .conteneur-ads {
+    margin: auto 25%;
+}
+
+.section-bands, .section-ads {
     padding-top: 10px;
     padding-bottom: 15px;
     margin: 15px;
 }
 
-.band {
-    border: 1px dashed seagreen;
+.contenu {
+    text-align: center;
+    border: 1px solid seagreen;
     border-radius: .25cm;
     padding: 10px;
     margin: 10px auto;
 }
 
-/* Style élément génréaux */
+.contenu:hover {
+    border: 1px solid white;
+}
+
+.conteneur-image {
+    text-align: center;
+}
+
+.logo-band {
+    border: 5px solid white;
+    border-radius: .25cm;
+    height: 15%;
+    width: 40%;
+}
+
+.contenu-info {
+    line-height: 2;
+    margin: 25px auto;
+}
+
+/**************** Style lien page ***************/
 a {
     text-decoration: none;
     color: inherit;
 }
 
-a:hover{
+a:hover {
     color: white;
     cursor: pointer;
 }
 
+/*************** Style bouton page **************/
+/*Conteneur des boutons dans des pages "_detail"*/
 .conteneur-bouton {
     text-align: center;
     margin: 10px auto;
 }
 
+.contenu-bouton {
+    display: flex;
+    justify-content: space-around;
+}
+.conteneur-input {
+    text-align: center;
+    align-items: center;
+}
+
+/************ Styles généraux boutons ***********/
 .bouton-retour, .bouton, .bouton-supprimer {
     font-weight: bold;
     border-radius: .25cm;
@@ -70,7 +143,12 @@ a:hover{
 }
 
 .bouton-retour, .bouton {
-    background-color: #D2CCA1;
+    background-color: var(--common-bg-color);
+}
+
+.bouton-retour:hover, .bouton:hover {
+    background-color: var(--common-txt-color);
+    color: var(--common-bg-color);
 }
 
 .bouton-supprimer {
@@ -78,26 +156,95 @@ a:hover{
     color: white;
 }
 
-.contenu-bouton {
-    display: flex;
-    justify-content: space-around;
+.bouton-supprimer:hover {
+    background-color: white;
+    color: #DA3E52;
 }
 
-.message-confirmation {
-    text-align: center;
-}
+/*********** Style message confirmation *********/
 
 .conteneur-message {
     color: red;
     transition: opacity .5s ease;
 }
 
-footer {
-    background-color: var(--main-bg-color);
+.message-confirmation {
     text-align: center;
+}
+
+/*************** Style formulaire ***************/
+.form-section {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 25px auto;
+}
+
+form {
+    text-align: center;
+    line-height: 3;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.contenu-formulaire {
+    background-color: #EFCB68;
+    border: 4px solid white;
+    border-radius: .25cm;
     padding: 10px;
 }
 
-.titre {
-    text-align: center;
+input[type="text"],
+input[type="number"],
+select {
+    color: white;
+    font-weight: bold;
+    background-color: #FFCDBC;
+    border: 2px solid white;
+    border-radius: .2cm;
+    box-shadow: 6px 3px 3px #7C3626;
+    height: 30px;
+    width: 95%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
 }
+
+input[type="submit"] {
+    font-weight: bold;
+    background-color: #9EC5AB;
+    color: #32746D;
+    border: 2px solid white;
+    border-radius: .25cm;
+    width: 250px;
+    padding: 10px;
+    margin: 10px 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #32746D;
+    color: #9EC5AB;
+    cursor: pointer;
+}
+
+/* Suppression des sauts de lignes dans le formulaire */
+form br {
+    display: none;
+}
+
+/************ Styles généraux boutons ***********/
+.conteneur-supprimer {
+    margin: auto 10%;
+    padding: 10px;
+}
+
+/************************************************/
