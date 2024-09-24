@@ -2,31 +2,42 @@
 
 {% block content %}
 
-    <section class = "section-bands">
-        <section class="titre">
+    <section class="section-bands">
+        <section class="titre-band">
             <h3>{{ band.name }}</h3>
         </section>
 
-        <ul>
-            <li>Genre : {{ band.get_genre_display }}</li>
-            <li>Année de formation : {{ band.year_formed }}</li>
-            <li>Actif : {{ band.active|yesno }}</li>
-            {% if band.official_homepage %}
-                <li><a href="{{ band.official_homepage }}">{{ band.official_homepage }}</a></li>
+        <div class="conteneur-image">
+            {% if band.band_cover %}
+                <img src="{{ band.band_cover.url }}" alt="{{ band.name }}" class="logo-band">
             {% endif %}
-        </ul>
+        </div>
 
-        <p>{{ band.biography }}</p>
+        <div class="contenu-info">
+            <ul>
+                <li>Genre : {{ band.get_genre_display }}</li>
+                <li>Année de formation : {{ band.year_formed }}</li>
+                <li>Actif : {{ band.active|yesno }}</li>
+                {% if band.official_homepage %}
+                    <li><a href="{{ band.official_homepage }}">{{ band.official_homepage }}</a></li>
+                {% endif %}
+                <li>Biographie : <a href="{{ band.biography }}">{{ band.biography }}</a></li>
+            </ul>
+        </div>
     </section>
 
-    <section>
-        <h3>Annonces du groupe :</h3>
-        {% for listing in band.listing_set.all %}
-            {% if listing.band == band %}
-                <li><a href="{% url 'ad-detail' listing.id %}">{{ listing.title }}</a></li>
-            {% endif %}
-        {% endfor %}
-    </section>
+    {% if band.listing_set.all %}
+        <section class="conteneur-listings">
+            <section>
+                <h3>Annonces du groupe :</h3>
+                {% for listing in band.listing_set.all %}
+                    {% if listing.band == band %}
+                        <li><a href="{% url 'ad-detail' listing.id %}">{{ listing.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </section>
+        </section>
+    {% endif %}
 
     <div class="conteneur-bouton">
         <div class="contenu-bouton">
@@ -42,7 +53,7 @@
             </div>
             <div>
                 <a href="{% url 'band-delete' band_id %}">
-                    <button class="bouton">Supprimer</button>
+                    <button class="bouton-supprimer">Supprimer</button>
                 </a>
             </div>
         </div>

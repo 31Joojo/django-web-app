@@ -41,6 +41,9 @@ footer {
     background-color: var(--main-bg-color);
     text-align: center;
     padding: 10px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
 }
 
 /*********** Style barre de navigation **********/
@@ -99,13 +102,17 @@ footer {
 .logo-band {
     border: 5px solid white;
     border-radius: .25cm;
-    height: 15%;
-    width: 40%;
+    height: auto;
+    width: 25vw;
 }
 
 .contenu-info {
     line-height: 2;
     margin: 25px auto;
+}
+
+.conteneur-listings {
+    margin: 15px;
 }
 
 /**************** Style lien page ***************/
